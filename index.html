@@ -65,12 +65,30 @@ quiero que abras cada parte de este pequeño regalo.
 Abrir ✨
 </button>
 
+<div id="mensaje" style="display:none; margin-top:30px;">
+<h2>Un pequeño recuerdo ❤️</h2>
+
+<p>
+A veces llegan personas a nuestra vida sin esperarlo...
+y poco a poco se vuelven alguien muy especial.
+</p>
+
+<button onclick="final()">
+Continuar 💌
+</button>
+</div>
+
 </div>
 
 
 <script>
 function siguiente(){
-  alert("Esto apenas comienza ❤️");
+  document.getElementById("mensaje").style.display = "block";
+}
+
+function final(){
+  alert("Todavía hay mucho más por descubrir ❤️");
+}
 }
 </script>
 

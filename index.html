@@ -3,68 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Becky ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #16001f, #8b1238);
-    font-family: Arial, sans-serif;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+
+body{
+margin:0;
+height:100vh;
+background:linear-gradient(135deg,#170016,#a31545);
+font-family:Arial,sans-serif;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
 }
 
-.contenedor {
-    max-width: 450px;
-    padding: 30px;
+.contenedor{
+max-width:450px;
+padding:30px;
 }
 
-h1 {
-    font-size: 40px;
+h1{
+font-size:38px;
 }
 
-p {
-    font-size: 20px;
-    line-height: 1.6;
+p{
+font-size:20px;
+line-height:1.6;
 }
 
-button {
-    background: #ff4d88;
-    border: none;
-    color: white;
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-size: 18px;
-    margin-top: 20px;
-    cursor: pointer;
+button{
+background:#ff4d88;
+color:white;
+border:none;
+padding:15px 35px;
+border-radius:30px;
+font-size:18px;
+margin:10px;
+cursor:pointer;
 }
 
-.seccion {
-    display: none;
-    animation: aparecer 1.5s;
+button:hover{
+transform:scale(1.1);
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.seccion{
+display:none;
+animation:aparecer 1.5s;
 }
+
+
+@keyframes aparecer{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+.corazon{
+
+position:absolute;
+font-size:30px;
+animation:subir 5s linear infinite;
+
+}
+
+
+@keyframes subir{
+
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
+
+@keyframes latir{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.4);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+
+#no{
+position:relative;
+}
+
+
 </style>
 
 </head>
 
+
 <body>
 
+
+<audio id="musica" loop>
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+
 <div class="contenedor">
+
 
 <div id="inicio">
 
@@ -75,11 +142,14 @@ Antes de continuar...<br><br>
 quiero que abras cada parte de este pequeño regalo.
 </p>
 
+
 <button onclick="mostrar('historia')">
 Abrir ✨
 </button>
 
+
 </div>
+
 
 
 <div id="historia" class="seccion">
@@ -87,71 +157,58 @@ Abrir ✨
 <h1>Algo especial 💌</h1>
 
 <p>
-Hay personas que llegan a nuestra vida
-sin esperarlo y poco a poco se vuelven
-alguien muy importante.
+Hay personas que llegan a nuestra vida sin esperarlo...
+y poco a poco se vuelven alguien muy especial.
 
-Quiero que sepas que he disfrutado mucho
-cada momento que hemos compartido.
+Me gusta compartir momentos contigo
+y seguir conociéndote.
 </p>
 
-<button onclick="mostrar('cancion')">
+
+<button onclick="mostrar('pregunta')">
 Continuar ❤️
 </button>
 
-</div>
-
-
-<div id="cancion" class="seccion">
-
-<h1>Una canción para ti 🎵</h1>
-
-<p>
-Esta canción me recuerda momentos
-bonitos y a lo especial que eres.
-</p>
-
-<a href="https://www.youtube.com/results?search_query=Photograph+Ed+Sheeran" target="_blank">
-<button>
-Escuchar Photograph 🎶
-</button>
-</a>
-
-<br>
-
-<button onclick="mostrar('pregunta')">
-Seguir 💕
-</button>
 
 </div>
+
 
 
 <div id="pregunta" class="seccion">
 
 <h1>Becky ❤️</h1>
 
-<p>
-Me gusta compartir tiempo contigo,
-conocerte y seguir creando momentos.
 
-Por eso quiero preguntarte algo...
+<p>
+Quiero seguir creando recuerdos contigo...
 </p>
+
 
 <h2>
 ¿Quieres ser mi novia? ❤️
 </h2>
 
-<button onclick="respuesta()">
+
+<button onclick="aceptar()">
 Sí ❤️
 </button>
 
-</div>
+
+<button id="no" onclick="no()">
+No 😢
+</button>
 
 
 </div>
+
+
+
+</div>
+
 
 
 <script>
+
 
 function mostrar(id){
 
@@ -159,39 +216,84 @@ document.getElementById("inicio").style.display="none";
 
 document.getElementById("historia").style.display="none";
 
-document.getElementById("cancion").style.display="none";
-
 document.getElementById("pregunta").style.display="none";
+
 
 document.getElementById(id).style.display="block";
 
+
+document.getElementById("musica").play();
+
 }
 
 
-function respuesta(){
 
-document.querySelector(".contenedor").innerHTML = `
+function aceptar(){
 
-<h1>❤️ Gracias Becky ❤️</h1>
+
+document.querySelector(".contenedor").innerHTML=`
+
+<h1>
+❤️ Gracias Becky ❤️
+</h1>
+
 
 <p>
 Me haces muy feliz.<br><br>
+
 Espero que este sea el comienzo
 de muchos momentos bonitos juntos.
 </p>
-@keyframes latir {
-0% {transform: scale(1);}
-50% {transform: scale(1.3);}
-100% {transform: scale(1);}
-}
-<div style="font-size:50px; animation:latir 1s infinite;">
-❤️
 
+
+<div style="font-size:70px;animation:latir 1s infinite;">
+❤️
 </div>
 
 `;
 
+
+crearCorazones();
+
+
 }
+
+
+
+function no(){
+
+let boton=document.getElementById("no");
+
+boton.style.position="absolute";
+
+boton.style.left=Math.random()*200+"px";
+
+boton.style.top=Math.random()*100+"px";
+
+}
+
+
+
+function crearCorazones(){
+
+for(let i=0;i<30;i++){
+
+let c=document.createElement("div");
+
+c.className="corazon";
+
+c.innerHTML="❤️";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(c);
+
+}
+
+}
+
 
 </script>
 

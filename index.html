@@ -7,44 +7,56 @@
 
 <style>
 body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a, #4b0f1a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #16001f, #8b1238);
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .contenedor {
-  padding: 30px;
-  max-width: 400px;
+    max-width: 450px;
+    padding: 30px;
 }
 
 h1 {
-  font-size: 32px;
+    font-size: 40px;
 }
 
 p {
-  font-size: 20px;
-  line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.6;
 }
 
 button {
-  margin-top: 25px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 30px;
-  background: #e91e63;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
+    background: #ff4d88;
+    border: none;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
-button:hover {
-  transform: scale(1.05);
+.seccion {
+    display: none;
+    animation: aparecer 1.5s;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 
@@ -54,6 +66,8 @@ button:hover {
 
 <div class="contenedor">
 
+<div id="inicio">
+
 <h1>Becky ❤️</h1>
 
 <p>
@@ -61,36 +75,107 @@ Antes de continuar...<br><br>
 quiero que abras cada parte de este pequeño regalo.
 </p>
 
-<button onclick="siguiente()">
+<button onclick="mostrar('historia')">
 Abrir ✨
 </button>
 
-<div id="mensaje" style="display:none; margin-top:30px;">
-<h2>Un pequeño recuerdo ❤️</h2>
+</div>
+
+
+<div id="historia" class="seccion">
+
+<h1>Algo especial 💌</h1>
 
 <p>
-A veces llegan personas a nuestra vida sin esperarlo...
-y poco a poco se vuelven alguien muy especial.
+Hay personas que llegan a nuestra vida
+sin esperarlo y poco a poco se vuelven
+alguien muy importante.
+
+Quiero que sepas que he disfrutado mucho
+cada momento que hemos compartido.
 </p>
 
-<button onclick="final()">
-Continuar 💌
+<button onclick="mostrar('cancion')">
+Continuar ❤️
 </button>
+
 </div>
+
+
+<div id="cancion" class="seccion">
+
+<h1>Una canción para ti 🎵</h1>
+
+<p>
+Esta canción me recuerda a los momentos
+bonitos y a lo especial que eres.
+</p>
+
+<a href="https://www.youtube.com/results?search_query=Photograph+Ed+Sheeran" target="_blank">
+<button>
+Escuchar Photograph 🎶
+</button>
+</a>
+
+<br>
+
+<button onclick="mostrar('pregunta')">
+Seguir 💕
+</button>
+
+</div>
+
+
+<div id="pregunta" class="seccion">
+
+<h1>Becky ❤️</h1>
+
+<p>
+Me gusta compartir tiempo contigo,
+conocerte y seguir creando momentos.
+
+Por eso quiero preguntarte algo...
+</p>
+
+<h2>
+¿Quieres ser mi novia? ❤️
+</h2>
+
+<button onclick="respuesta()">
+Sí ❤️
+</button>
+
+</div>
+
 
 </div>
 
 
 <script>
-function siguiente(){
-  document.getElementById("mensaje").style.display = "block";
+
+function mostrar(id){
+
+document.getElementById("inicio").style.display="none";
+
+document.getElementById("historia").style.display="none";
+
+document.getElementById("cancion").style.display="none";
+
+document.getElementById("pregunta").style.display="none";
+
+document.getElementById(id).style.display="block";
+
 }
 
-function final(){
-  alert("Todavía hay mucho más por descubrir ❤️");
+
+function respuesta(){
+
+alert("Me haces muy feliz ❤️");
+
 }
-}
+
 </script>
+
 
 </body>
 </html>
